@@ -47,13 +47,14 @@ class Database {
         return $this->result->fetch_assoc();
     }
 
-    // Get column of result.
+    // count amount of records at table for specific condition.
     public function count_table($name_of_table, $condition_sql="") {
         //$sql = "SELECT COUNT(*) FROM `$name_of_table` WHERE $condition_sql";
         $sql = "SELECT COUNT(*) FROM `$name_of_table` WHERE ".$condition_sql.";";
         return $this->query($sql)->fetch_column();
     }
 
+    // Before use value to sql, convert teh value into the safety string to avoid sql injections
     public function safety_str($str) {
         return $this->conn->real_escape_string($str);
     }
