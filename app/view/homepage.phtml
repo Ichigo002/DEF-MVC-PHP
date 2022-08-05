@@ -1,9 +1,48 @@
 <!DOCTYPE html>
 <html lang="eng">
     <head>
-        
+        <title>Homepage</title>
+        <link rel="icon" href="img/icon/logo.png"/>
+
+        <style><?php echo file_get_contents($config["VIEW_PATH"].'homepage-style.css'); ?></style>
     </head>
     <body>
-
+        <h1 class="title">Hello on homepage of App</h1>
+        <h3>Github</h2>
+        <p>
+            All MVC structure you can download from my github repository from <a href="https://github.com/Ichigo002/DEF-MVC-PHP" target="_blank">here</a>
+        </p>
+        <h3>Logo</h2>
+        <p>
+            Easy, good-looking and fast logo you can create at <a href="https://logomakr.com/app/" target="_blank">LogoMakr</a> with 3 millions of ready graphics
+        </p>
+        <h3>In order to edit the MVC you shall do:</h2>
+        <p>
+            <ul>
+                <li>Change DEF_ADDRESS at <span class="fav">app/cfg/config.php:3</span></li>
+                <li>Change friendly addresses at <span class="fav">.htaccess</span> by add "RewriteRule name-of-page index.php" and call every time link with that one instead of std link</li>
+                <li>Change database settings at <span class="fav">app/lib/db-lib.php:9-13</span></li>
+            </ul>
+        </p>
+        <h3 style="color: yellow;">REMEMBER!!!</h3>
+        <p>
+            EVERYTHING RELATIVE ADDRESSES AND LINKS ARE STARTING FROM INDEX.PHP 
+        </p>
+        <h3>Add new page at MVC:</h3>
+        <p>
+            Make new files at <span class="fav">app/view</span>, <span class="fav">app/model</span> with the same name. Extensions shall be identic like example's extension. Typing the address of page and adding argument ?pg_v=your-page& you go to your new side. Firstly Model is called and there are manipulate variables which changes the content of view. Then view is called with content html.
+        </p>
+        <h3>Using Controllers</h3>
+        <p>
+            On your page probably will be forms with data to analyse by php and send to database. The controllers make it EASY! Just call from form action with ?pg_v=%cntl_your-controller-name& or make hidden input with this value like below That everything and your data go to the controller.
+        </p>
+        <h3>EXAMPLE of Calling Controller below: </h3>
+        <p>
+            <form action="index.php" method="POST"> <!--1st method:  action="index.php?pg_v=%cntl_homepage-control.php"-->
+                <input type="text" name="txt1" value="Everything has beauty, but not everyone sees it."/>
+                <input type="submit" value="Send Data!" />
+                <input type="hidden" name="pg_v" value="%cntl_homepage-control" />
+            </form>
+        </p>
     </body>
 </html>
